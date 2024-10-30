@@ -1,0 +1,289 @@
+/**
+ * JKL Timezone Converter style
+ *
+ * 1. General styles
+ * 2. Post specific styles
+ * 3. Widget specific styles
+ * 4. jQuery UI Datepicker styles
+ */
+
+/* 
+ * The Form itself 
+ */
+#jkl_timezones_form * {
+    box-sizing: border-box;
+    /*position: relative;*/
+/*    margin: 0;
+    padding: 0;*/
+}
+#jkl_timezones_form:after {
+    display: table;
+    content: "";
+    clear: both;
+}
+#jkl_timezones_form {
+    margin-bottom: 2em;
+    position: relative;
+    padding: 20px 20px 24px;
+    background: white;
+    box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.3);
+}
+#jkl_timezones_form input,
+#jkl_timezones_form select {
+    height: 40px;
+    line-height: 20px;
+    color: #0a0a0a;
+    margin: 0;
+}
+
+/* 
+ * Main areas - Heading, From, To, equal sign, controls
+ */
+#jkl_timezones_form h4 {
+    margin-top: 0;
+}
+        /* Post specific styles */
+        .singular .jkl-from, 
+        .singular .jkl-to {
+            width: 47%;
+            float: left;
+            margin-bottom: 1em;
+            position: relative;
+        }
+        .singular .jkl-from {
+            margin-right: 3%;
+        }
+        .singular .jkl-to {
+            margin-left: 3%;
+        }
+.jkltz-equal-sign {
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 20px);
+    font-size: 180%;
+    text-align: center;
+    width: 40px;
+    color: silver;
+}
+.jkl-from-tz select,
+.jkl-to-tz select {
+    background: url(img/up-down-arrow.png) 96% no-repeat whiteSmoke;
+    display: block;
+    clear: both;
+    width: 100%;
+    border-radius: 0 0 5px 5px;
+    vertical-align: middle;
+    -webkit-appearance: button;
+    appearance: button;
+    padding-left: 0;
+}
+/* Controls */
+#jkl_timezones_form input[type="submit"] {
+    background: white;
+    border-color: #dcdcdc;
+    float: right;
+    padding: 5px 20px;
+    outline: none;
+    border-radius: 3px;
+    font-weight: normal;
+    width: auto;
+    height: auto;
+    border-width: 1px;
+    margin-left: 10px;
+}
+#jkl_timezones_form input[type="submit"]:hover {
+    box-shadow: 1px 1px 3px black;
+}
+
+/*
+ * FROM Box
+ */
+.jkl-from-time .jkl-timezones-date {
+    float: left;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 0;
+    border-color: silver;
+    border-top-color: darkgray;
+    color: black;
+    box-shadow: none;
+    position: relative;
+    padding-left: 1em!important;
+}
+.jkl-from-time .dashicons-calendar {
+    position: absolute;
+    top: 32px;
+    right: 3%;
+    padding-top: 5px;
+    font-size: 1.3em;
+    color: #ccc!important;
+}
+.jkl-from-time .jkltz-time {
+    width: 70%;
+    padding-left: 1em;
+    background: url(img/up-down-arrow.png) 95% no-repeat white;
+    float: left;
+    border-radius: 0;
+    border-bottom: 0;
+    border-top: 1px solid #ededed!important;
+}
+.jkl-from-time .jkl-ampm {
+    float: left;
+    background: white;
+    padding: 8px 10px 0;
+    width: 30%;
+    border-top: 1px solid #ededed;
+    border-right: 1px solid silver;
+    height: 40px;
+}
+.jkl-from-time .jkl-ampm input {
+    margin-right: 3px!important;
+    height: auto!important;
+}
+.jkl-from-time .jkl-from-tz select {
+    border-radius: 0 0 5px 5px;
+    padding-left: 1em;
+}
+
+/*
+ * TO Box
+ */
+.jkl-to-time .jkl-converted-date,
+.jkl-to-time .jkl-converted-time {
+    font-size: 120%!important;
+    text-align: center;
+    color: black!important;
+    background: #fefefe!important;
+    border-bottom: 0!important;
+    outline: none!important;
+    box-shadow: none!important;
+    font-weight: 300;
+}
+.jkl-to-time .jkl-converted-date,
+.jkl-to-time .jkl-converted-date:focus,
+.jkl-to-time .jkl-converted-date:active {
+    border-color: silver;
+    border-top-color: darkgray;
+    outline: none;
+    box-shadow: none;
+}
+.jkl-to-time .jkl-converted-time:focus,
+.jkl-to-time .jkl-converted-time:active {
+    border-color: silver;
+    border-top: none;
+}
+.jkl-to-time .jkl-converted-date {
+    padding: 0;
+    border-radius: 5px 5px 0 0;
+}
+.jkl-to-time .jkl-converted-time {
+    border-top: none;
+}
+
+/*
+ * Responsive styles
+ */
+@media screen and ( max-width: 550px ) {
+    #jkl_timezones_form .jkltz-equal-sign {
+        display: none;
+    }
+            .singular .jkl-from,
+            .singular .jkl-to {
+                float: none;
+                width: 100%;
+                margin: 0;
+            }
+            .singular .jkl-from {
+                margin-bottom: 1em;
+            }
+    .jkltz-time {
+        width: 60%;
+    }
+    .jkl-ampm {
+        width: 40%;
+    }
+}
+
+/*
+ * WIDGET Specific Styles
+ */
+.jkl_timezones_widget #jkl_timezones_form {
+    padding: 0;
+    box-shadow: none;
+    background: transparent;
+}
+.jkl_timezones_widget h4,
+.jkl_timezones_widget .jkltz-equal-sign {
+    display: none;
+}
+.jkl_timezones_widget .jkl-from,
+.jkl_timezones_widget .jkl-to {
+    float: none;
+    width: 100%;
+    margin: 0;
+}
+.jkl_timezones_widget .jkl-from {
+    margin-bottom: 1em;
+}
+.jkl_timezones_widget .jkltz-time {
+    width: 60%;
+}
+.jkl_timezones_widget .jkl-ampm {
+    width: 40%;
+}
+.jkl_timezones_widget .dashicons-calendar {
+    top: 33px;
+    right: 12px;
+}
+
+/*
+ * Datepicker Styles
+ */
+#ui-datepicker-div.jkl-timezones-datepicker {
+    /*margin-top: -2em;*/
+}
+.jkl-timezones-datepicker .ui-datepicker-header {
+    background: gainsboro;
+    position: relative;
+}
+.jkl-timezones-datepicker .ui-datepicker-header a {
+    padding-top: 3px;
+}
+.jkl-timezones-datepicker .ui-datepicker-title {
+    width: 65%!important;
+    margin: 0 auto;
+}
+.jkl-timezones-datepicker .ui-datepicker-month,
+.jkl-timezones-datepicker .ui-datepicker-year {
+    background: url(img/up-down-arrow.png) 95% no-repeat gainsboro;
+    width: 50%;
+    font-size: 0.8em;
+    height: 29px;
+    padding: 0 10px;
+    font-weight: normal;
+}
+.jkl-timezones-datepicker .ui-datepicker-prev {
+    position: absolute;
+    left: 5px;
+}
+.jkl-timezones-datepicker .ui-datepicker-next {
+    position: absolute;
+    right: 5px;
+}
+.jkl-timezones-datepicker .ui-datepicker-title {
+    width: auto;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* DEPRECATED right arrow
+.post #jkl_timezones_form .jkl-from-tz dd:after {
+    display: block;
+    font-family: 'Dashicons';
+    content: '\f344';
+    color: #dcdcdc;
+    font-size: 1.5em;
+    position: absolute;
+    top: 1.25em;
+    right: -0.5em;
+}
+*/
